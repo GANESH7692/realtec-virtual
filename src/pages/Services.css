@@ -222,6 +222,12 @@
         padding: 80px 0;
     }
 
+    .benefits__stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 24px 0;
+    }
+
     .benefits__grid.grid-2 {
         grid-template-columns: 1fr;
         gap: 20px;
