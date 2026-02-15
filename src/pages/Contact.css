@@ -1,0 +1,125 @@
+/* Contact Page */
+.contact-hero {
+    padding: 200px 0 80px;
+}
+
+.contact-hero__inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-hero__title {
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: 800;
+    overflow: hidden;
+    margin-bottom: 20px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.contact-hero__title .word {
+    display: inline-block;
+}
+
+.contact-hero__desc {
+    max-width: 560px;
+    color: var(--text-muted-dark);
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    line-height: 1.7;
+}
+
+/* Form */
+.contact-form-section {
+    padding: 60px 0 120px;
+    background: var(--bg-white);
+}
+
+.contact-form {
+    max-width: 750px;
+}
+
+.contact-form__section {
+    margin-bottom: 48px;
+}
+
+.contact-form__label {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+}
+
+.contact-form__chips {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Attachment */
+.contact-form__attachment {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 2px solid var(--text-primary);
+    padding-bottom: 4px;
+    transition: opacity 0.3s ease;
+}
+
+.contact-form__attachment:hover {
+    opacity: 0.7;
+}
+
+.contact-form__attachment-icon {
+    font-size: 1.1rem;
+}
+
+/* Submit */
+.contact-form__submit {
+    padding: 18px 48px;
+    font-size: 1.05rem;
+    border-radius: var(--radius-pill) !important;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .contact-hero {
+        padding: 160px 0 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-hero {
+        padding: 140px 0 48px;
+    }
+
+    .contact-hero__title {
+        font-size: clamp(1.6rem, 6vw, 2.5rem);
+    }
+
+    .contact-form__chips {
+        gap: 8px;
+    }
+
+    .contact-form__chips .chip {
+        padding: 8px 18px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-hero__title {
+        font-size: 1.5rem;
+    }
+
+    .contact-form__submit {
+        padding: 14px 36px;
+        font-size: 0.95rem;
+    }
+}

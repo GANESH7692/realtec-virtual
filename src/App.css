@@ -1,0 +1,16 @@
+/* App-level styles */
+.page-wrapper {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  background: var(--bg-white);
+}
+
+/* Delete default Vite styles */
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  overflow-x: hidden;
+}

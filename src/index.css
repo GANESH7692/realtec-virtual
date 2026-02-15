@@ -1,0 +1,637 @@
+/* ========================================
+   REALTEC VIRTUAL — Design System
+   Cuberto-inspired premium creative agency
+   ======================================== */
+
+/* ---------- CSS Custom Properties ---------- */
+:root {
+  /* Backgrounds */
+  --bg-dark: #1a1a1a;
+  --bg-darker: #111111;
+  --bg-light: #f5f5f5;
+  --bg-warm: #f8f7f4;
+  --bg-white: #ffffff;
+
+  /* Text */
+  --text-primary: #1a1a1a;
+  --text-light: #ffffff;
+  --text-muted: #7a7a7a;
+  --text-muted-light: #aaaaaa;
+  --text-muted-dark: #555555;
+
+  /* Accent */
+  --accent: #6c5ce7;
+  --accent-hover: #5a4bd6;
+
+  /* Typography — Syne for headings, DM Sans for body */
+  --font-heading: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  /* Spacing */
+  --section-padding: 120px 80px;
+  --section-padding-mobile: 60px 20px;
+  --container-max: 1400px;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --transition-fast: 0.3s var(--ease-out);
+  --transition-medium: 0.6s var(--ease-out);
+  --transition-slow: 1s var(--ease-out);
+
+  /* Border radius */
+  --radius-pill: 100px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+}
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--text-primary);
+  background-color: var(--bg-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: none;
+}
+
+button {
+  border: none;
+  background: none;
+  font-family: inherit;
+  cursor: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+input,
+textarea {
+  font-family: var(--font-body);
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--text-light);
+}
+
+/* ---------- Typography ---------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 600;
+}
+
+p {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.text-large {
+  font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+  line-height: 1.6;
+}
+
+.text-small {
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ---------- Layout Utilities ---------- */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.section {
+  padding: var(--section-padding);
+}
+
+.section-dark {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.section-light {
+  background-color: var(--bg-light);
+}
+
+.section-warm {
+  background-color: #edecea;
+}
+
+.section-white {
+  background-color: var(--bg-white);
+}
+
+/* ---------- Button System ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 16px 40px;
+  border-radius: var(--radius-pill);
+  transition: color 0.4s ease, border-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  isolation: isolate;
+}
+
+/* Wave fill pseudo-element (shared by all buttons) */
+.btn::before,
+.btn-pill::before,
+.btn-outline-dark::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.btn:hover::before,
+.btn-pill:hover::before,
+.btn-outline-dark:hover::before {
+  transform: translateY(0);
+}
+
+/* — Primary Button (dark bg, white text on light pages) — */
+.btn-primary {
+  background-color: var(--text-primary);
+  color: var(--text-light);
+}
+
+.btn-primary::before {
+  background-color: var(--accent);
+}
+
+.btn-primary:hover {
+  color: var(--text-light);
+  transform: scale(1.03);
+}
+
+/* — Outline Button (dark border on light pages) — */
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid rgba(0, 0, 0, 0.2);
+}
+
+.btn-outline::before {
+  background-color: var(--text-primary);
+}
+
+.btn-outline:hover {
+  color: var(--text-light);
+  border-color: var(--text-primary);
+  transform: scale(1.03);
+}
+
+/* Override buttons inside dark sections */
+.section-dark .btn-primary {
+  background-color: var(--text-light);
+  color: var(--text-primary);
+}
+
+.section-dark .btn-primary::before {
+  background-color: var(--accent);
+}
+
+.section-dark .btn-primary:hover {
+  color: var(--text-light);
+}
+
+.section-dark .btn-outline {
+  color: var(--text-light);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.section-dark .btn-outline::before {
+  background-color: var(--text-light);
+}
+
+.section-dark .btn-outline:hover {
+  color: var(--text-primary);
+  border-color: var(--text-light);
+}
+
+/* — Outline Dark (always dark border) — */
+.btn-outline-dark {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s ease, border-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  isolation: isolate;
+}
+
+.btn-outline-dark::before {
+  background-color: var(--text-primary);
+}
+
+.btn-outline-dark:hover {
+  color: var(--text-light);
+  border-color: var(--text-primary);
+  transform: scale(1.03);
+}
+
+.btn-pill {
+  display: inline-block;
+  padding: 12px 32px;
+  font-size: 0.9rem;
+  border: 1.5px solid rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s ease, border-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  isolation: isolate;
+  text-align: center;
+}
+
+.btn-pill::before {
+  background-color: var(--text-primary);
+}
+
+.btn-pill:hover {
+  color: var(--text-light);
+  border-color: var(--text-primary);
+  transform: scale(1.03);
+}
+
+.btn-pill.active {
+  background: var(--text-primary);
+  color: var(--text-light);
+  border-color: var(--text-primary);
+}
+
+.btn-large {
+  padding: 24px 64px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* ---------- Pill / Chip ---------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  border: 1.5px solid rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.chip:hover,
+.chip.active {
+  background: var(--text-primary);
+  color: var(--text-light);
+  border-color: var(--text-primary);
+}
+
+/* ---------- Grid Systems ---------- */
+.masonry-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.masonry-grid .grid-item:nth-child(even) {
+  margin-top: 80px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* ---------- Card Styles ---------- */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.project-card .card-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.project-card .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-medium);
+}
+
+.project-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.project-card .card-content {
+  padding: 24px 0;
+}
+
+.project-card .card-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.project-card .card-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Card Hover Overlay (replacing Explore circle) ---------- */
+.card-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 28px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  border-radius: var(--radius-md);
+}
+
+.project-card:hover .card-hover-overlay {
+  opacity: 1;
+}
+
+.card-hover-overlay__text {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-light);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.card-hover-overlay__arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--text-light);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transform: translate(10px, 10px);
+  transition: transform 0.4s var(--ease-out);
+}
+
+.project-card:hover .card-hover-overlay__arrow {
+  transform: translate(0, 0);
+}
+
+/* ---------- Form Styles (Cuberto Contact) ---------- */
+.form-group {
+  margin-bottom: 48px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 16px 0;
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  color: var(--text-primary);
+  transition: border-color var(--transition-fast);
+}
+
+.form-input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-input:focus {
+  border-bottom-color: var(--text-primary);
+}
+
+/* ---------- Divider ---------- */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.divider-light {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- Label / Overline ---------- */
+.overline {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ---------- Animation Utilities ---------- */
+.reveal-text {
+  overflow: hidden;
+}
+
+.reveal-text span {
+  display: inline-block;
+  transform: translateY(100%);
+  transition: transform var(--transition-medium);
+}
+
+.reveal-text.visible span {
+  transform: translateY(0);
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity var(--transition-medium), transform var(--transition-medium);
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Image parallax wrapper ---------- */
+.parallax-img-wrap {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.parallax-img-wrap img {
+  width: 100%;
+  height: 115%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+/* ---------- Scroll Progress ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: var(--accent);
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* ---------- Page Transition ---------- */
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-dark);
+  z-index: 9998;
+  transform-origin: bottom;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 40px;
+  }
+
+  .section {
+    padding: 80px 40px;
+  }
+
+  .masonry-grid .grid-item:nth-child(even) {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .section {
+    padding: var(--section-padding-mobile);
+  }
+
+  .masonry-grid,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .masonry-grid .grid-item:nth-child(even) {
+    margin-top: 0;
+  }
+
+  body {
+    cursor: auto;
+  }
+
+  a,
+  button {
+    cursor: pointer;
+  }
+
+  .btn-large {
+    padding: 18px 48px;
+    font-size: 1.2rem;
+  }
+
+  .card-hover-overlay {
+    display: none;
+  }
+}

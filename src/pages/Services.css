@@ -1,0 +1,229 @@
+/* Services Page — Light Theme */
+
+/* Hero */
+.services-hero {
+    padding: 200px 0 100px;
+}
+
+.services-hero__inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services-hero__title {
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: 800;
+    max-width: 700px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+.services-hero__title .word {
+    display: inline-block;
+}
+
+.services-hero__desc {
+    max-width: 560px;
+    color: var(--text-muted-dark);
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    line-height: 1.7;
+}
+
+/* Services List */
+.services-list {
+    padding: 100px 0;
+}
+
+.services-list__heading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 16px;
+}
+
+.services-list__desc {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 60px;
+    max-width: 550px;
+    line-height: 1.6;
+}
+
+.services-list__items {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.service-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.service-showcase:nth-child(even) {
+    direction: rtl;
+}
+
+.service-showcase:nth-child(even)>* {
+    direction: ltr;
+}
+
+.service-showcase__number {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.service-showcase__label {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.service-showcase__desc {
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 24px;
+}
+
+.service-showcase__visual {
+    width: 100%;
+    aspect-ratio: 16/10;
+}
+
+/* Benefits — warm bg */
+.benefits {
+    padding: 80px 0;
+}
+
+.benefits__heading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.benefits__desc {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 48px;
+    max-width: 550px;
+    line-height: 1.6;
+}
+
+.benefits__stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+    padding: 32px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.stat-item__number {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.stat-item__label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+}
+
+.benefit-card {
+    padding: 40px;
+    background: var(--bg-white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius-md);
+    transition: all 0.4s ease;
+}
+
+.benefit-card:hover {
+    border-color: rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+    transform: translateY(-4px);
+}
+
+.benefit-card__icon {
+    display: inline-block;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--accent);
+}
+
+.benefit-card__title {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.benefit-card__desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .services-hero {
+        padding: 160px 0 80px;
+    }
+
+    .service-showcase {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-hero {
+        padding: 140px 0 60px;
+    }
+
+    .services-hero__title {
+        font-size: clamp(1.6rem, 6vw, 2.5rem);
+    }
+
+    .services-list {
+        padding: 60px 0;
+    }
+
+    .service-showcase {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .service-showcase:nth-child(even) {
+        direction: ltr;
+    }
+
+    .benefits {
+        padding: 80px 0;
+    }
+
+    .benefits__grid.grid-2 {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
